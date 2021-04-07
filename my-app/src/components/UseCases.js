@@ -5,14 +5,21 @@ import { getUseCases } from '../redux/useCasesSlice'
 
 function UseCases() {
     const cases = useSelector((state) => state.useCases.useCases);
-    console.log(cases);
-    // const dispatch = useDispatch();
-    // dispatch(getUseCases())
-    
+    console.log(`Use Cases: ${cases}`);
+
+
+
     return (
-        <div>the states:
-           <h1><div>{JSON.stringify(cases)}</div></h1> 
-        </div>
+        <div className="use-cases">
+            {cases.map((useCase, index) => (
+                <div key={index}>
+                    <h3>{useCase.name}</h3>
+                    <h3>{useCase.slug}</h3>
+                    <h3>{useCase.campaignId}</h3>
+                    <br/>
+                </div>
+        ))}
+      </div>
     )
 }
 
