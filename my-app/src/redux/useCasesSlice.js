@@ -9,7 +9,7 @@ export const getUseCases  = createAsyncThunk(
   }
 ) 
 
-const useCasesSlice = createSlice({
+export const useCasesSlice = createSlice({
     name: 'useCases',
     initialState: {
       useCases: [],
