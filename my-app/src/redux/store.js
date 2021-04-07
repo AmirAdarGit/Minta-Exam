@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { useCasesSlice } from './useCasesSlice'
-import { videoGallerySlice } from './videoGalerySlice'
+import  useCasesSlice  from './useCasesSlice'
+import  videoGallerySlice  from './videoGalerySlice'
 
 export default configureStore({
   reducer: {
