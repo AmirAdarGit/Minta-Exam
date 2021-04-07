@@ -1,15 +1,22 @@
 import React from 'react'
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { getUseCases } from '../redux/useCasesSlice'
 
+
 function UseCases() {
-    const dispatch = useDispatch();
-    dispatch(getUseCases())
-    
+    const cases = useSelector((state) => state.useCases.useCases);
+    console.log(`Use Cases: ${cases}`);
+
+
+
     return (
-        <div>
-            fatching the use cases from api...            
-        </div>
+        <div className="use-cases">
+            {cases.map((useCase, index) => (
+                <div key={index}>
+                    <h3>{useCase.name}</h3>
+                </div>
+        ))}
+      </div>
     )
 }
 

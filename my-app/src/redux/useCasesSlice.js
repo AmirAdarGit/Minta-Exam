@@ -12,7 +12,16 @@ export const getUseCases  = createAsyncThunk(
 export const useCasesSlice = createSlice({
     name: 'useCases',
     initialState: {
-      useCases: [],
+      useCases: [{
+        "name": "New in",
+        "slug": "new-in",
+        "campaignId": "606d6c938e429b001ed11bb6"
+      },
+      {
+        "name": "Best seller",
+        "slug": "best-sellers",
+        "campaignId": "606d6c558e429b001ed11bb5"
+      }],
       status: null,
       selectedUseCase: ''
     },
