@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
-
+import  { MenuList, MenuItem } from '@material-ui/core'
 
 function UseCases() {
     const cases = useSelector((state) => state.useCases.useCases);
@@ -10,11 +10,14 @@ function UseCases() {
 
     return (
         <div className="use-cases">
-            {cases.map((useCase, index) => (
-                <div key={index}>
-                    <h3>{useCase.name}</h3>
-                </div>
-        ))}
+            <MenuList>
+                {cases.map((useCase, index) => (
+                    <div key={index}>
+                        <MenuItem>{useCase.name}</MenuItem>
+                    </div>
+                
+                ))}
+            </MenuList>
       </div>
     )
 }
