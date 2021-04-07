@@ -14,7 +14,6 @@ function UseCases() {
             {cases.map((useCase, index) => (
                 <div key={index}>
                     <h3>{useCase.name}</h3>
-                    <br/>
                 </div>
         ))}
       </div>
