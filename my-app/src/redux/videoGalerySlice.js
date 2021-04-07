@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const videoGallerySlice = createSlice({
     name: 'videoGallery',
     initialState: {
-      videoGallery: [],
+      videos: [],
       status: null,
     },
     

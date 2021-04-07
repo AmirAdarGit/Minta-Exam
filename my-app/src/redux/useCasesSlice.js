@@ -14,7 +14,7 @@ export const useCasesSlice = createSlice({
     initialState: {
       useCases: [],
       status: null,
-      isCasePaint: false
+      selectedCampareId: ''
     },
     extraReducers: {
       [getUseCases.pending]: (state) => {
