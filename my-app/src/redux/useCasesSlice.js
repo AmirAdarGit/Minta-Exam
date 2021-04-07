@@ -12,15 +12,16 @@ export const getUseCases  = createAsyncThunk(
 const useCasesSlice = createSlice({
     name: 'useCases',
     initialState: {
-      list: [],
-      status: null
+      useCases: [],
+      status: null,
+      isCasePaint: false
     },
     extraReducers: {
       [getUseCases.pending]: (state) => {
         state.status = 'loading' 
       },
       [getUseCases.fulfilled]: (state, { payload }) => {
-        state.list = payload
+        state.useCases = payload
         state.status = 'success' 
       },
       [getUseCases.rejected]: (state) => {
@@ -29,7 +30,5 @@ const useCasesSlice = createSlice({
     }
   })
   
-  // Action creators are generated for each case reducer function
-  export const { getUseCases } = useCasesSlice.actions
   
   export default useCasesSlice.reducer
