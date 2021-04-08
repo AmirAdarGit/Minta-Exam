@@ -4,7 +4,7 @@ import  { MenuList, MenuItem } from '@material-ui/core'
 import { sizing } from '@material-ui/system';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import { initThunk } from '../redux/useCasesSlice'
+import { initThunk } from '../actions/init-thunk'
 import  { useState, useEffect } from 'react'
 
 function UseCases() {

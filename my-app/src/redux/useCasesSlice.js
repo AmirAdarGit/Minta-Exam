@@ -1,16 +1,11 @@
-// import  { initThunk }  from '../actions/init-thunk'
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import  axios from 'axios' 
+import  { initThunk }   from '../actions/init-thunk'
+import { createSlice } from '@reduxjs/toolkit'
+import  useCaseObj  from '../models/useCaseObj'
 
-export const initThunk  = createAsyncThunk(
-  'useCases/initThunk',
-  async () => {
-    const { data }  = await axios.get('https://run.mocky.io/v3/c087effa-9307-414d-955d-417bf606760f');
-    console.log("here");
-    console.log(data);
-      return data;
-  }
-)  
+
+
+
+
 
 export const useCasesSlice = createSlice({
     name: 'useCases',
@@ -25,7 +20,14 @@ export const useCasesSlice = createSlice({
         state.status = 'loading' 
       },
       [initThunk.fulfilled]: (state, { payload }) => {
-        state.useCases = payload
+        
+        const response = [];
+        for (var i = 0; i < payload.length; i++) {
+          response.push(new useCaseObj(payload[i].name, payload[i].slug, payload[i].campaignId))
+        }
+        console.log(response);
+        
+        state.useCases = response
         state.status = 'success' 
       },
       [initThunk.rejected]: (state) => {
