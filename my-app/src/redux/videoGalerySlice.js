@@ -8,6 +8,9 @@ export const videoGallerySlice = createSlice({
           "url": "https://campaigns.withminta.com/2938/0000/pld934l2h133b3hb1o3051rb2ceg19d19h1f1p61v36266_image1.jpg"
         },
         {
+          "url": "https://campaigns.withminta.com/2938/0000/pld934l2h133b3hb1o3051rb2ceg19d19h1f1p61v36266_image1.jpg"
+        },
+        {
           "url": "https://campaigns.withminta.com/2938/0000/twr358u6pd702bst190e52jmqu1b2i91tfh36t_image1.jpg"
         },
         {

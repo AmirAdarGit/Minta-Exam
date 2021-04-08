@@ -10,10 +10,14 @@ function VideoGallery() {
 
             <div className="video-gallery">
                 <h1>{title}</h1>
-            {videosGallery.map((image, index) => (
-                <div key={index}>
-                    <Image image={image.url}/>
-                </div> ))}
+                {videosGallery.map((image, index) => (
+                    <div key={index}>
+                    {(index % 3 == 0) && 
+                        <ol/>
+                    }
+                        {console.log(index)}
+                        <Image image={image.url}/>
+                    </div> ))}
             </div>
     )
 }
