@@ -4,15 +4,22 @@ import  { MenuList, MenuItem } from '@material-ui/core'
 import { sizing } from '@material-ui/system';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { initThunk } from '../redux/useCasesSlice'
+import  { useState, useEffect } from 'react'
+
 function UseCases() {
+
+    const dispatch = useDispatch();
     const cases = useSelector((state) => state.useCases.useCases);
     console.log(`Use Cases: ${cases}`);
+    
+    useEffect(() => {
+        dispatch(initThunk());
+    }, [])
 
-
-
+    // dispatch(initThunk());
     return (
         <div>
-            <h1 style={{float: "left", fontSize: "20px"}}>Mints</h1>
             <div className="use-cases">
                 <ThemeProvider theme={theme}>
                     <MenuList>

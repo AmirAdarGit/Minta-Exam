@@ -1,43 +1,37 @@
+// import  { initThunk }  from '../actions/init-thunk'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import  axios from 'axios' 
 
-export const getUseCases  = createAsyncThunk(
-  'useCase/getUseCases',
+export const initThunk  = createAsyncThunk(
+  'useCases/initThunk',
   async () => {
-    return axios.get('https://run.mocky.io/v3/c087effa-9307-414d-955d-417bf606760f')
-      .then((res) => res.json())
+    const { data }  = await axios.get('https://run.mocky.io/v3/c087effa-9307-414d-955d-417bf606760f');
+    console.log("here");
+    console.log(data);
+      return data;
   }
-) 
+)  
 
 export const useCasesSlice = createSlice({
     name: 'useCases',
     initialState: {
-      useCases: [{
-        "name": "New in",
-        "slug": "new-in",
-        "campaignId": "606d6c938e429b001ed11bb6"
-      },
-      {
-        "name": "Best seller",
-        "slug": "best-sellers",
-        "campaignId": "606d6c558e429b001ed11bb5"
-      }],
+      useCases: [],
       status: null,
       selectedUseCase: ''
     },
+
     extraReducers: {
-      [getUseCases.pending]: (state) => {
+      [initThunk.pending]: (state) => {
         state.status = 'loading' 
       },
-      [getUseCases.fulfilled]: (state, { payload }) => {
+      [initThunk.fulfilled]: (state, { payload }) => {
         state.useCases = payload
         state.status = 'success' 
       },
-      [getUseCases.rejected]: (state) => {
+      [initThunk.rejected]: (state) => {
         state.status = 'failed' 
       }
     }
   })
-  
   
   export default useCasesSlice.reducer
