@@ -9,7 +9,6 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-      <ColoredLine color="red" />
         <UseCases/>
         <VideoGallery/>
       </div>
