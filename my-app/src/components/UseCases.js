@@ -17,15 +17,14 @@ function UseCases() {
         dispatch(initThunk());
     }, [])
 
-    // dispatch(initThunk());
     return (
         <div>
             <div className="use-cases">
                 <ThemeProvider theme={theme}>
-                    <MenuList>
+                    <MenuList >
                         {cases.map((useCase, index) => (
                             <div key={index}>
-                                <MenuItem >{useCase.name}</MenuItem>
+                                <MenuItem onClick={fatchGalleryByName()}>{useCase.name}</MenuItem>
                             </div>
                         
                         ))}
@@ -34,6 +33,10 @@ function UseCases() {
             </div>
         </div>
     )
+}
+
+const fatchGalleryByName = () => {
+    console.log("here");
 }
 
 

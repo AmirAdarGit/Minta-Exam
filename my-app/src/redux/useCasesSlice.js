@@ -27,7 +27,8 @@ export const useCasesSlice = createSlice({
         }
         console.log(response);
         
-        state.useCases = response
+        state.useCases = response;
+        state.selectedUseCase = response[0].name;
         state.status = 'success' 
       },
       [initThunk.rejected]: (state) => {

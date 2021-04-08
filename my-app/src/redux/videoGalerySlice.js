@@ -1,32 +1,50 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import dispatch from "react-redux"
+import  axios from 'axios' 
+
+
+const campaignId = '606d6c938e429b001ed11bb6';
+const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTg0OGQ2YWU1MWMwNzQ5ODRhYTdlYjEiLCJyb2xlcyI6WyJ1c2VyIl0sImlhdCI6MTU4NTc0NTI1OSwiZXhwIjoxNTg1ODMxNjU5fQ.S61K8RkHJ6qwxRjp9m2Pfvttd6hRBOyWRO3TimRkJA4'
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+
+
+export const galleryThunk  = createAsyncThunk(
+  'videoGallery/galleryThunk',
+  async () => {
+    const { data }  = await axios.get(`https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${campaignId}&offset=0&limit=6&applicationSource=web`)
+  
+    console.log(data);  
+    return data;
+  }
+)
+
 
 export const videoGallerySlice = createSlice({
     name: 'videoGallery',
     initialState: {
       title: 'New in',
-      previewImages: [{
-          "url": "https://campaigns.withminta.com/2938/0000/pld934l2h133b3hb1o3051rb2ceg19d19h1f1p61v36266_image1.jpg"
-        },
-        {
-          "url": "https://campaigns.withminta.com/2938/0000/pld934l2h133b3hb1o3051rb2ceg19d19h1f1p61v36266_image1.jpg"
-        },
-        {
-          "url": "https://campaigns.withminta.com/2938/0000/twr358u6pd702bst190e52jmqu1b2i91tfh36t_image1.jpg"
-        },
-        {
-          "url": "https://campaigns.withminta.com/2938/0000/tba31j1p9202y2y32omy2uxhpcm2s1blsqe_image1.jpg"
-        },
-        {
-          "url": "https://campaigns.withminta.com/2938/0000/ug20jk2sw372p3i371j2i525hggte2623q2o2e2st1z1ee_image1.jpg"
-        },
-        {
-          "url": "https://campaigns.withminta.com/2938/0000/4h734aa2u2m2b8bs18g0vpv3j31f5b81fi_image1.jpg"
-        }
-      ],
+      previewImages: [],
       status: null,
     },    
-  
     
+    extraReducers: {
+      [galleryThunk.pending]: (state) => {
+        state.status = 'loading' 
+      },
+      [galleryThunk.fulfilled]: (state, { payload }) => {
+        
+        // const response = [];
+        // for (var i = 0; i < payload.length; i++) {
+        //   response.push(new useCaseObj(payload[i].name, payload[i].slug, payload[i].campaignId))
+        // }
+        
+        state.previewImages = payload;
+        state.status = 'success' 
+      },
+      [galleryThunk.rejected]: (state) => {
+        state.status = 'failed' 
+      }
+    }
   })
   
   
