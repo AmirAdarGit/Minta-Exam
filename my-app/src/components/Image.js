@@ -1,9 +1,12 @@
 import React from 'react'
+import '../style/gallery.css';
 
 function Image(props) {
     return (
         <div>
-          {<img src={props.image} height={200} width={200}/>}
+          <div className="gallery">
+              <img src={props.image} width={226} height={228}/>
+          </div>
         </div>
     )
 }
