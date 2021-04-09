@@ -20,27 +20,12 @@ function UseCases() {
     }, [])
 
     const cases = useSelector((state) => state.INIT.useCases);
-
-    // useEffect(() => {
-    //     dispatch(galleryThunk());
-    // },[])
-
-    // const firstSelectedUseCase = useSelector((state) => state.INIT.selectedUseCase);
-
-
+   
     const fatchGalleryByCampaignId = (useCaseName) => {
-
     console.log("The user case thas sellected is: ", useCaseName.name);
     console.log("The campain is: ", useCaseName.campaignId);
-    
     dispatch(galleryThunk(useCaseName.campaignId));
-    // dispatch(changeCampaignId(useCaseName.campaignId))
-    // dispatch(galleryThunk());
-
-}
-
-    console.log(`Use Cases: ${JSON.stringify(cases)}`);
-    // console.log('Selected Case ',firstSelectedUseCase);
+    }
 
     return (
         <div>
@@ -50,7 +35,6 @@ function UseCases() {
                         {cases.map((useCase, index) => (
                             <div key={index}>
                                 <MenuItem onClick={() => {fatchGalleryByCampaignId(useCase)}}>{useCase.name}</MenuItem>
-             
                             </div>
                         ))}
                     </MenuList>

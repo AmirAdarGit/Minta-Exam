@@ -32,14 +32,7 @@ export const useCasesSlice = createSlice({
         state.status = 'failed' 
       }
     },
-    reducers: {
-      changeUseCase: (state, action) => {
-        state.selectedUseCase = action.payload;
-      },
-      changeCampaignId: (state, action) => {
-        state.selectedCampaignId = action.payload;
-      },
-    }
+    
   })
   
   export const { changeUseCase, changeCampaignId } = useCasesSlice.actions
