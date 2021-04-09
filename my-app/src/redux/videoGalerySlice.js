@@ -1,28 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import dispatch from "react-redux"
-import  axios from 'axios' 
-
-
-const campaignId = '606d6c938e429b001ed11bb6';
-const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTg0OGQ2YWU1MWMwNzQ5ODRhYTdlYjEiLCJyb2xlcyI6WyJ1c2VyIl0sImlhdCI6MTU4NTc0NTI1OSwiZXhwIjoxNTg1ODMxNjU5fQ.S61K8RkHJ6qwxRjp9m2Pfvttd6hRBOyWRO3TimRkJA4'
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-
-
-export const galleryThunk  = createAsyncThunk(
-  'videoGallery/galleryThunk',
-  async () => {
-    const { data }  = await axios.get(`https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${campaignId}&offset=0&limit=6&applicationSource=web`)
-  
-    console.log(data);  
-    return data;
-  }
-)
-
+import { createSlice } from '@reduxjs/toolkit'
+import { galleryThunk } from '../actions/gallery-thunk'
 
 export const videoGallerySlice = createSlice({
-    name: 'videoGallery',
+    name: 'CLICK_ON_USE_CASE',
     initialState: {
-      title: 'New in',
+      title: '',
       previewImages: [],
       status: null,
     },    
@@ -45,6 +27,8 @@ export const videoGallerySlice = createSlice({
         state.status = 'failed' 
       }
     }
+
+    
   })
   
   

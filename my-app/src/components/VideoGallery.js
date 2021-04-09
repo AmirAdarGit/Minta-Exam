@@ -1,25 +1,30 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import Image from "./Image"
-import { galleryThunk } from '../redux/videoGalerySlice'
+import { galleryThunk } from '../actions/gallery-thunk'
 import  { useState, useEffect } from 'react'
+import { fatchGalleryByCampainIdThunk } from '../actions/gallery-thunk'
 
 
-function VideoGallery() {
+function VideoGallery(props) {
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(galleryThunk());
-    }, [])
+    // const videosGallery = useSelector((state) => state.videoGallery.previewImages);
+    // const title = useSelector((state) => state.videoGallery.title);
+    //const campaignId = useSelector((state) => state.videoGallery.title);
 
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(fatchGalleryByCampainIdThunk(props.campaignId));
+    // }, [])
 
-    const videosGallery = useSelector((state) => state.videoGallery.previewImages);
-    const title = useSelector((state) => state.videoGallery.title);
-    console.log(`video gallery: ${videosGallery}`);
+    // console.log(`props: ${JSON.stringify(props.campaignID)}`);
+    console.log("here");
+
+    // console.log(`video gallery: ${videosGallery}`);
     return (
 
             <div className="video-gallery">
-                <h1>{title}</h1>
+                {/* <h1>{title}</h1> */}
                 {/* {videosGallery.map((image, index) => (
                     <div key={index}>
                     {(index % 3 === 0) && 

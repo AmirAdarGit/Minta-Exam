@@ -3,16 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 import  useCaseObj  from '../models/useCaseObj'
 
 
-
-
-
-
 export const useCasesSlice = createSlice({
-    name: 'useCases',
+    name: 'INIT',
     initialState: {
       useCases: [],
       status: null,
-      selectedUseCase: ''
+      selectedUseCase: '',
+      selectedCampaignId: '',
+
     },
 
     extraReducers: {
@@ -24,9 +22,8 @@ export const useCasesSlice = createSlice({
         const response = [];
         for (var i = 0; i < payload.length; i++) {
           response.push(new useCaseObj(payload[i].name, payload[i].slug, payload[i].campaignId))
+          
         }
-        console.log(response);
-        
         state.useCases = response;
         state.selectedUseCase = response[0].name;
         state.status = 'success' 
@@ -34,7 +31,16 @@ export const useCasesSlice = createSlice({
       [initThunk.rejected]: (state) => {
         state.status = 'failed' 
       }
+    },
+    reducers: {
+      changeUseCase: (state, action) => {
+        state.selectedUseCase = action.payload;
+      },
+      changeCampaignId: (state, action) => {
+        state.selectedCampaignId = action.payload;
+      },
     }
   })
   
+  export const { changeUseCase, changeCampaignId } = useCasesSlice.actions
   export default useCasesSlice.reducer
