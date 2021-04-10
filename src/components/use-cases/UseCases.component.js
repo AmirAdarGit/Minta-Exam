@@ -17,7 +17,7 @@ function UseCases() {
 
   const cases = useSelector((state) => state.useCases);
   const fatchGalleryByCampaignId = (useCase) => {
-    dispatch(clickOnUseCase(useCase.campaignId));
+    dispatch(clickOnUseCase(useCase));
   };
 
   const isSelected = (campaignId) => {
@@ -32,7 +32,7 @@ function UseCases() {
             <div key={index}>
               <MenuItem
                 className={`use-case-item ${
-                  isSelected(useCase.campaignId, useCase.name) ? "green" : ""
+                  isSelected(useCase.campaignId) ? "green" : ""
                 }`}
                 onClick={() => {
                   fatchGalleryByCampaignId(useCase);

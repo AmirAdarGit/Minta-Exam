@@ -9,9 +9,9 @@ axios.defaults.headers.common["Authorization"] = authToken;
 
 export const clickOnUseCase = createAsyncThunk(
   `${CLICK_ON_USE_CASE}/clickOnUseCase`,
-  async (campaignId) => {
+  async (useCase) => {
     const { data } = await axios.get(
-      `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${campaignId}&offset=0&limit=6&applicationSource=web`
+      `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${useCase.campaignId}&offset=0&limit=6&applicationSource=web`
     );
 
     return { videos: data.docs };
