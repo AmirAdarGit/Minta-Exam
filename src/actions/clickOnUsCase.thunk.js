@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { CLICK_ON_USE_CASE } from "./actions";
 
+console.log(process.env.REACT_APP_MINTA_AUTH_TOKEN);
 const authToken = process.env.REACT_APP_MINTA_AUTH_TOKEN;
 
 axios.defaults.headers.common["Authorization"] = authToken;
