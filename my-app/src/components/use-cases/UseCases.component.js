@@ -1,26 +1,33 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import  { MenuList, MenuItem } from '@material-ui/core'
-import { sizing } from '@material-ui/system';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import  { useEffect } from 'react'
+import { clickOnUseCase } from '../../actions/clickOnUsCase.thunk'
+import { init } from '../../actions/init.thunk'
+
 function UseCases() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(init());
+    }, [])
+   
     const cases = useSelector((state) => state.useCases.useCases);
-    console.log(`Use Cases: ${cases}`);
-
-
+    const fatchGalleryByCampaignId = (useCaseName) => {
+        dispatch(clickOnUseCase(useCaseName.campaignId));
+    }
 
     return (
         <div>
-            <h1 style={{float: "left", fontSize: "20px"}}>Mints</h1>
             <div className="use-cases">
                 <ThemeProvider theme={theme}>
-                    <MenuList>
+                    <MenuList >
                         {cases.map((useCase, index) => (
                             <div key={index}>
-                                <MenuItem >{useCase.name}</MenuItem>
+                                <MenuItem onClick={() => {fatchGalleryByCampaignId(useCase)}}>{useCase.name}</MenuItem>
                             </div>
-                        
                         ))}
                     </MenuList>
                 </ThemeProvider>

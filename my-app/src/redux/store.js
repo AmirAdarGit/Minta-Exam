@@ -4,8 +4,7 @@ import  videoGallerySlice  from './videoGalerySlice'
 
 export default configureStore({
   reducer: {
-    useCases: useCasesSlice,
-    videoGallery: videoGallerySlice,
-
-  },
+    "useCases": useCasesSlice,
+    "videoGallery": videoGallerySlice,
+  }
 })
