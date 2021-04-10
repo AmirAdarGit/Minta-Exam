@@ -15,6 +15,7 @@ export const useCasesSlice = createSlice({
       console.log("catch");
       var temp = payload.meta.arg;
       state.selectedCampaignId = payload.meta.arg;
+      // state.selectedUseCase = ;
     },
 
     [init.pending]: (state) => {

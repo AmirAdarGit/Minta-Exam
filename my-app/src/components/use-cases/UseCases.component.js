@@ -32,7 +32,7 @@ function UseCases() {
             <div key={index}>
               <MenuItem
                 className={`use-case-item ${
-                  isSelected(useCase.campaignId) ? "green" : ""
+                  isSelected(useCase.campaignId, useCase.name) ? "green" : ""
                 }`}
                 onClick={() => {
                   fatchGalleryByCampaignId(useCase);
