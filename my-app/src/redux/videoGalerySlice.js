@@ -1,35 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { galleryThunk } from '../actions/gallery-thunk'
+import { clickOnUseCase } from '../actions/clickOnUsCase.thunk'
 
 export const videoGallerySlice = createSlice({
-    name: 'CLICK_ON_USE_CASE',
+    name: 'videoGallery',
     initialState: {
-      title: '',
-      previewImages: [],
+      videos: [],
       status: null,
     },    
-    
     extraReducers: {
-      [galleryThunk.pending]: (state) => {
+      [clickOnUseCase.pending]: (state) => {
         state.status = 'loading' 
       },
-      [galleryThunk.fulfilled]: (state, { payload }) => {
-        
-        // const response = [];
-        // for (var i = 0; i < payload.length; i++) {
-        //   response.push(new useCaseObj(payload[i].name, payload[i].slug, payload[i].campaignId))
-        // }
-        
-        state.previewImages = payload;
+      [clickOnUseCase.fulfilled]: (state, { payload }) => {
+        const videos = payload.videos.map(video => {
+          return { 
+            previewImageUrl: video.videos[0].previewImages[0].links.url,
+            videoUrl: video.videos[0].url
+          }
+        })
+        state.videos = videos;
         state.status = 'success' 
       },
-      [galleryThunk.rejected]: (state) => {
+      [clickOnUseCase.rejected]: (state) => {
         state.status = 'failed' 
       }
     }
-
-    
   })
-  
   
   export default videoGallerySlice.reducer

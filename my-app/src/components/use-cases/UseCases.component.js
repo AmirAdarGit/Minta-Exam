@@ -1,30 +1,22 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import  { MenuList, MenuItem } from '@material-ui/core'
-import { sizing } from '@material-ui/system';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import  { changeUseCase, changeCampaignId }  from '../redux/useCasesSlice'
-import { initThunk } from '../actions/init-thunk'
 import  { useEffect } from 'react'
-import { galleryThunk } from '../actions/gallery-thunk'
-import VideoGallery from './VideoGallery';
-import { INIT, CLICK_ON_USE_CASE } from "../actions/actions"
+import { clickOnUseCase } from '../../actions/clickOnUsCase.thunk'
+import { init } from '../../actions/init.thunk'
 
 function UseCases() {
-
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(initThunk());
+      dispatch(init());
     }, [])
-
-    const cases = useSelector((state) => state.INIT.useCases);
    
+    const cases = useSelector((state) => state.useCases.useCases);
     const fatchGalleryByCampaignId = (useCaseName) => {
-    console.log("The user case thas sellected is: ", useCaseName.name);
-    console.log("The campain is: ", useCaseName.campaignId);
-    dispatch(galleryThunk(useCaseName.campaignId));
+        dispatch(clickOnUseCase(useCaseName.campaignId));
     }
 
     return (

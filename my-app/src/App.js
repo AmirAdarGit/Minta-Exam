@@ -1,9 +1,9 @@
 import './App.css';
 import store from './redux/store'
-import UseCases from './components/UseCases'
+import UseCases from './components/use-cases/UseCases.component'
 import { Provider } from 'react-redux'
-import VideoGallery from './components/VideoGallery'
-import { ColoredLine } from './components/ColoredLine'
+import VideoGallery from './components/video-galley/VideoGallery.component'
+
 
 function App() {
   return (
