@@ -1,25 +1,34 @@
 import { init } from "../actions/init.thunk";
 import { createSlice } from "@reduxjs/toolkit";
 import { clickOnUseCase } from "../actions/clickOnUsCase.thunk";
+import { LOADING } from "../consts";
 
 export const useCasesSlice = createSlice({
   name: "useCases",
   initialState: {
-    useCases: [],
+    useCases: [
+      // {
+      //   name: "",
+      //   slug: "",
+      //   campaignId: "123",
+      // },
+    ],
     status: null,
-    selectedUseCase: "",
+    selectedUseCase: "", //TODO: change to selectedUSeCaseName
     selectedCampaignId: "",
   },
   extraReducers: {
-    [clickOnUseCase.fulfilled]: (state, payload) => {
-      console.log("catch");
-      var temp = payload.meta.arg;
-      state.selectedCampaignId = payload.meta.arg.campaignId;
-      state.selectedUseCase = payload.meta.arg.name;
+    [clickOnUseCase.fulfilled]: (state, { payload }) => {
+      state.selectedCampaignId = payload.campaignId;
+      state.selectedUseCase = payload.selectedUseCaseName;
+      state.status = "success";
+    },
+    [clickOnUseCase.pending]: (state) => {
+      state.status = LOADING;
     },
 
     [init.pending]: (state) => {
-      state.status = "loading";
+      state.status = LOADING;
     },
     [init.fulfilled]: (state, { payload }) => {
       if (!payload.useCases) {
@@ -35,11 +44,6 @@ export const useCasesSlice = createSlice({
       });
 
       state.useCases = useCases;
-
-      if (useCases && useCases.length > 0) {
-        state.selectedUseCase = useCases[0].name;
-      }
-
       state.status = "success";
     },
     [init.rejected]: (state) => {

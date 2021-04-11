@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { clickOnUseCase } from "../../actions/clickOnUsCase.thunk";
 import { init } from "../../actions/init.thunk";
 import "./useCases.css";
+import Loader from "../Loader";
+import { LOADING } from "../../consts";
 
 function UseCases() {
   const dispatch = useDispatch();
@@ -43,6 +45,7 @@ function UseCases() {
             </div>
           ))}
         </MenuList>
+        {cases.status === LOADING && <Loader />}
       </ThemeProvider>
     </div>
   );

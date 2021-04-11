@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { clickOnUseCase } from "../actions/clickOnUsCase.thunk";
+import { LOADING } from "../consts";
 
 export const videoGallerySlice = createSlice({
   name: "videoGallery",
@@ -9,7 +10,7 @@ export const videoGallerySlice = createSlice({
   },
   extraReducers: {
     [clickOnUseCase.pending]: (state) => {
-      state.status = "loading";
+      state.status = LOADING;
     },
     [clickOnUseCase.fulfilled]: (state, { payload }) => {
       const videos = payload.videos.map((video) => {

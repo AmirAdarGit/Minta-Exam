@@ -19,6 +19,10 @@
   padding: 6px 0;
 }
 
-.use-case-item.green {
+.use-cases .use-case-item.green {
   background-color: #09bba6;
+}
+
+.use-cases .use-case-item:hover {
+  /* background-color: #09bba6; */
 }

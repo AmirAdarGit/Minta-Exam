@@ -14,6 +14,10 @@ export const clickOnUseCase = createAsyncThunk(
       `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${useCase.campaignId}&offset=0&limit=6&applicationSource=web`
     );
 
-    return { videos: data.docs };
+    return {
+      videos: data.docs,
+      selectedUseCaseName: useCase.name,
+      campaignId: useCase.campaignId,
+    };
   }
 );

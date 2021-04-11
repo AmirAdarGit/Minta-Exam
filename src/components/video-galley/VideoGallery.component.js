@@ -13,12 +13,13 @@ function VideoGallery(props) {
   return (
     <div className="video-gallery">
       <h1>{title}</h1>
-      {videos.map((video, index) => (
-        <div key={index}>
-          {index % 3 === 0 && <ol />}
-          <Image image={video.previewImageUrl} />
-        </div>
-      ))}
+      <div className="row">
+        {videos.map((video, index) => (
+          <div key={index} className="column">
+            <Image image={video.previewImageUrl} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
