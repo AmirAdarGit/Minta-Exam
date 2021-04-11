@@ -1,14 +1,12 @@
-import React from 'react'
-import '../style/gallery.css';
+import React from "react";
+import "../style/gallery.css";
 
 function Image(props) {
-    return (
-        <div>
-          <div className="gallery">
-              <img src={props.image} width={226} height={228}/>
-          </div>
-        </div>
-    )
+  return (
+    <div className="gallery">
+      <img src={props.image} width={226} height={228} />
+    </div>
+  );
 }
 
-export default Image
+export default Image;
