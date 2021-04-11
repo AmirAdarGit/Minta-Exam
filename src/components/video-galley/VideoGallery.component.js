@@ -13,9 +13,8 @@ function VideoGallery(props) {
 
   return (
     <div className="video-gallery">
-      {/* <div className="upper-line" />
-      <div className="title">{title ? `# ${title}` : ""}</div>
-      <div className="lower-line" /> */}
+      {title && <div className="title-video-gallery">#{title}</div>}
+
       <div className="container">
         {videos.map((video, index) => (
           <div key={index} className="item">

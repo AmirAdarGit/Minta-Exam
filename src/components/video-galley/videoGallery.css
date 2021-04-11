@@ -50,10 +50,17 @@
   position: absolute;
 }
 
-.title {
-  padding: 0 0 0 0;
+.title-video-gallery {
+  font-size: 20px;
+  text-align: left;
+  padding: 24px;
   flex-wrap: inherit;
   /* float: left; */
+  margin: 1px;
+  /* float: left; */
+  border-top: 1px solid #ccc9d4;
+  border-bottom: 1px solid #ccc9d4;
+  font-weight: bold;
 }
 
 div.gallery img {
