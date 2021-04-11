@@ -4,6 +4,7 @@ import Image from "../Image";
 import { clickOnUseCase } from "../../actions/clickOnUsCase.thunk";
 import { useState, useEffect } from "react";
 import { fatchGalleryByCampainIdThunk } from "../../actions/clickOnUsCase.thunk";
+import ColloredLine from "../ColoredLine";
 import "./videoGallery.css";
 
 function VideoGallery(props) {
@@ -12,10 +13,12 @@ function VideoGallery(props) {
 
   return (
     <div className="video-gallery">
-      <h1>{title}</h1>
-      <div className="row">
+      {/* <div className="upper-line" />
+      <div className="title">{title ? `# ${title}` : ""}</div>
+      <div className="lower-line" /> */}
+      <div className="container">
         {videos.map((video, index) => (
-          <div key={index} className="column">
+          <div key={index} className="item">
             <Image image={video.previewImageUrl} />
           </div>
         ))}
