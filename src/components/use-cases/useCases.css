@@ -1,0 +1,28 @@
+.use-cases {
+  height: 100%;
+  width: 15%;
+  background-color: #282828;
+  color: white;
+  float: left;
+  padding: 20px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.use-cases .use-case-item {
+  line-height: 22px;
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+.use-cases .use-case-item.green {
+  background-color: #09bba6;
+}
+
+.use-cases .use-case-item:hover {
+  /* background-color: #09bba6; */
+}

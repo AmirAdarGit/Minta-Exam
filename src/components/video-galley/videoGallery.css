@@ -1,0 +1,24 @@
+.video-gallery {
+  height: 100%;
+  width: 85%;
+  margin-left: 15%;
+  padding-top: 20px;
+}
+
+.column,
+.row {
+  box-sizing: border-box;
+}
+
+.column {
+  text-align: center;
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
