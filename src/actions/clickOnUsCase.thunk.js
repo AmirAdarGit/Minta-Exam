@@ -14,6 +14,8 @@ export const clickOnUseCase = createAsyncThunk(
       `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${useCase.campaignId}&offset=0&limit=6&applicationSource=web`
     );
 
+    window.history.replaceState({}, "", `/minta/${useCase.slug}`);
+
     return {
       videos: data.docs,
       selectedUseCaseName: useCase.name,
