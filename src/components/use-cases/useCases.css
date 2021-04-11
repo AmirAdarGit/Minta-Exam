@@ -21,8 +21,5 @@
 
 .use-cases .use-case-item.green {
   background-color: #09bba6;
-}
-
-.use-cases .use-case-item:hover {
-  /* background-color: #09bba6; */
+  width: 143%;
 }
