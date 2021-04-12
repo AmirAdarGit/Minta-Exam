@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { fatchGalleryByCampainIdThunk } from "../../actions/clickOnUsCase.thunk";
 import ColloredLine from "../ColoredLine";
 import "./videoGallery.css";
+import { func } from "prop-types";
 
 function VideoGallery(props) {
   const videos = useSelector((state) => state.videoGallery.videos);
@@ -13,13 +14,13 @@ function VideoGallery(props) {
 
   return (
     <div className="video-gallery">
-      {/* <div className="upper-line" />
-      <div className="title">{title ? `# ${title}` : ""}</div>
-      <div className="lower-line" /> */}
+      {title && <div className="title-video-gallery">#{title}</div>}
+
       <div className="container">
         {videos.map((video, index) => (
           <div key={index} className="item">
-            <Image image={video.previewImageUrl} />
+            {console.log(video)}
+            <Image image={video} />
           </div>
         ))}
       </div>
