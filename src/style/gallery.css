@@ -1,7 +1,8 @@
 .gallery {
   margin: 5px;
   float: left;
-  width: 231px;
+  width: 223px;
+  height: 282;
 }
 
 div.gallery img {

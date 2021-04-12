@@ -7,6 +7,7 @@ import { fatchGalleryByCampainIdThunk } from "../../actions/clickOnUsCase.thunk"
 import ColloredLine from "../ColoredLine";
 import "./videoGallery.css";
 import { func } from "prop-types";
+import ShowMoreBtn from "../ShowMoreBtn";
 
 function VideoGallery(props) {
   const videos = useSelector((state) => state.videoGallery.videos);
@@ -23,6 +24,7 @@ function VideoGallery(props) {
             <Image image={video} />
           </div>
         ))}
+        {title && <ShowMoreBtn />}
       </div>
     </div>
   );
