@@ -19,6 +19,7 @@ function VideoGallery(props) {
       <div className="container">
         {videos.map((video, index) => (
           <div key={index} className="item">
+            {console.log(video)}
             <Image image={video} />
           </div>
         ))}
