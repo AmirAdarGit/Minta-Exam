@@ -30,11 +30,12 @@
 }
 
 .item {
-  padding: 32px;
+  padding: 10px;
   /* flex: 0 32%; */
   /* float: left; */
   /* width: 32%; */
-  margin: 5px;
+  margin: 23px;
+  box-shadow: 0px 0px 7px 3px #c9c9c9;
 }
 
 .upper-line {
@@ -58,8 +59,8 @@
   /* float: left; */
   margin: 1px;
   /* float: left; */
-  border-top: 1px solid #ccc9d4;
-  border-bottom: 1px solid #ccc9d4;
+  border-top: 1px solid #ccc9d466;
+  border-bottom: 1px solid #ccc9d466;
   font-weight: bold;
 }
 
