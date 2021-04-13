@@ -14,17 +14,18 @@ export const useCasesSlice = createSlice({
       // },
     ],
     status: null,
-    selectedUseCase: "", //TODO: change to selectedUSeCaseName
+    selectedUseCaseName: "",
     selectedCampaignId: "",
   },
   extraReducers: {
-    [clickOnUseCase.fulfilled]: (state, { payload }) => {
-      state.selectedCampaignId = payload.campaignId;
-      state.selectedUseCase = payload.selectedUseCaseName;
-      state.status = "success";
-    },
     [clickOnUseCase.pending]: (state) => {
       state.status = LOADING;
+    },
+
+    [clickOnUseCase.fulfilled]: (state, { payload }) => {
+      state.selectedCampaignId = payload.campaignId;
+      state.selectedUseCaseName = payload.selectedUseCaseName;
+      state.status = "success";
     },
 
     [init.pending]: (state) => {
@@ -34,7 +35,7 @@ export const useCasesSlice = createSlice({
       if (!payload.useCases) {
         return;
       }
-
+      console.log("stuck here");
       const useCases = payload.useCases.map((useCase) => {
         return {
           name: useCase.name,
@@ -46,6 +47,7 @@ export const useCasesSlice = createSlice({
       state.useCases = useCases;
       state.status = "success";
     },
+
     [init.rejected]: (state) => {
       state.status = "failed";
     },

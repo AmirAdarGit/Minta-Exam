@@ -1,16 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, useEffect } from "react-redux";
 import Image from "../Image";
-import { clickOnUseCase } from "../../actions/clickOnUsCase.thunk";
-import { useState, useEffect } from "react";
-import { fatchGalleryByCampainIdThunk } from "../../actions/clickOnUsCase.thunk";
-import ColloredLine from "../ColoredLine";
 import "./videoGallery.css";
-import { func } from "prop-types";
 import ShowMoreBtn from "../ShowMoreBtn";
 
 function VideoGallery(props) {
   const videos = useSelector((state) => state.videoGallery.videos);
+
   const title = useSelector((state) => state.useCases.selectedUseCase);
 
   return (
