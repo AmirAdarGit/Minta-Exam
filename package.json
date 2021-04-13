@@ -15,6 +15,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-video-js-player": "^1.1.1",
+    "reactjs-media": "^1.5.1",
     "redux": "^4.0.5",
     "web-vitals": "^1.1.1"
   },

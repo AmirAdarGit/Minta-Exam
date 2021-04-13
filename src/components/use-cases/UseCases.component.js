@@ -18,6 +18,7 @@ function UseCases() {
   }, []);
 
   const cases = useSelector((state) => state.useCases);
+
   const fatchGalleryByCampaignId = (useCase) => {
     dispatch(clickOnUseCase(useCase));
   };

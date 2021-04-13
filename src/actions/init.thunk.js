@@ -17,17 +17,13 @@ export const init = createAsyncThunk(`${INIT}/init`, async () => {
 
   var currentUrl = window.location.href;
   var slug = currentUrl.split("mints/")[1];
-  console.log("The slug is: ", slug);
-  console.log("The useCases are: ", useCases);
 
   if (slug != undefined) {
     useCases.map((useCase) => {
       if (useCase.slug === slug) {
-        console.log("Slugs campaignId is: ", useCase.campaignId);
         selectedUseCaseByCampignId = useCase.campaignId;
       }
     });
-    console.log("the current use case isL: ", selectedUseCaseByCampignId);
     var { data } = await axios.get(
       `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${selectedUseCaseByCampignId}&offset=0&limit=6&applicationSource=web`
     );

@@ -1,13 +1,19 @@
 import React from "react";
-import { useDispatch, useSelector, useEffect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
 import Image from "../Image";
 import "./videoGallery.css";
 import ShowMoreBtn from "../ShowMoreBtn";
 
-function VideoGallery(props) {
-  const videos = useSelector((state) => state.videoGallery.videos);
+function VideoGallery() {
+  const title = useSelector((state) => state.useCases.selectedUseCaseName);
+  let videos = useSelector((state) => state.videoGallery.videos);
 
-  const title = useSelector((state) => state.useCases.selectedUseCase);
+  useEffect(() => {
+    console.log("ok");
+    console.log("The videos are: ", videos);
+  }, [videos]);
 
   return (
     <div className="video-gallery">
@@ -16,7 +22,6 @@ function VideoGallery(props) {
       <div className="container">
         {videos.map((video, index) => (
           <div key={index} className="item">
-            {console.log(video)}
             <Image image={video} />
           </div>
         ))}
