@@ -35,7 +35,9 @@ export const useCasesSlice = createSlice({
       if (!payload.useCases) {
         return;
       }
-      console.log("stuck here");
+      if (payload.videos.docs) {
+        state.selectedCampaignId = payload.videos.docs[0].campaign;
+      }
       const useCases = payload.useCases.map((useCase) => {
         return {
           name: useCase.name,
