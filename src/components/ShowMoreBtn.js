@@ -4,9 +4,9 @@ import { Button } from "@material-ui/core";
 import "../style/showMoreBtn.css";
 import { useDispatch, useSelector } from "react-redux";
 import { showMoreVideos } from "../actions/showMoreVideos.thunk";
-
+import { increment } from "../redux/videoGalerySlice";
 function ShowMoreBtn() {
-  const [counter, setCounter] = useState(6);
+  const count = useSelector((state) => state.videoGallery.count);
 
   const videosCampaignId = useSelector(
     (state) => state.useCases.selectedCampaignId
@@ -15,9 +15,10 @@ function ShowMoreBtn() {
   const dispatch = useDispatch();
 
   const showMoreBtn = () => {
-    setCounter(counter + 6);
+    dispatch(increment());
+    console.log("counter: ", count);
     dispatch(
-      showMoreVideos({ videosCampaignId: videosCampaignId, counter: counter })
+      showMoreVideos({ videosCampaignId: videosCampaignId, count: count })
     );
   };
   return (

@@ -10,6 +10,7 @@ export const videoGallerySlice = createSlice({
   initialState: {
     videos: [],
     status: null,
+    count: 0,
   },
   extraReducers: {
     [showMoreVideos.pending]: (state) => {
@@ -17,10 +18,7 @@ export const videoGallerySlice = createSlice({
     },
 
     [showMoreVideos.fulfilled]: (state, { payload }) => {
-      console.log("the payload is", payload);
-      const videos = payload.videos.map((video) => {
-        console.log("prevImage:", video.videos[0].previewImages[0].links.url);
-        console.log("videoUrl", video.videos[0].url);
+      payload.videos.map((video) => {
         state.videos.push({
           previewImageUrl: video.videos[0].previewImages[0].links.url,
           videoUrl: video.videos[0].url,
@@ -38,7 +36,6 @@ export const videoGallerySlice = createSlice({
     },
 
     [clickOnUseCase.fulfilled]: (state, { payload }) => {
-      console.log("catchhhh", payload);
       const videos = payload.videos.map((video) => {
         return {
           previewImageUrl: video.videos[0].previewImages[0].links.url,
@@ -66,6 +63,16 @@ export const videoGallerySlice = createSlice({
       state.status = "success";
     },
   },
+  reducers: {
+    increment: (state) => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
+      state.count += 6;
+    },
+  },
 });
+export const { increment } = videoGallerySlice.actions;
 
 export default videoGallerySlice.reducer;
