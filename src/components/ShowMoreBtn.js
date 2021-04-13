@@ -22,9 +22,9 @@ function ShowMoreBtn() {
     );
   };
   return (
-    <footer className="show-more-btn">
+    <div className="show-more-btn">
       <Button onClick={showMoreBtn}>Show more</Button>
-    </footer>
+    </div>
   );
 }
 
