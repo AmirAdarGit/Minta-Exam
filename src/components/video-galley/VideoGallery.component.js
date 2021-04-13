@@ -25,8 +25,8 @@ function VideoGallery() {
             <Image image={video} />
           </div>
         ))}
-        {title && <ShowMoreBtn />}
       </div>
+      {title && <ShowMoreBtn />}
     </div>
   );
 }
