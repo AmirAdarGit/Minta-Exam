@@ -1,11 +1,6 @@
 .video-gallery {
-  height: 300%;
-  /* width: 46%; */
-  /* padding-top: 13px; */
-  /* display: block; */
-  /* float: left; */
-  /* padding: 0 0 0 0; */
   overflow: hidden;
+  margin-left: 18%;
 }
 
 .item,
@@ -22,11 +17,11 @@
   display: flex;
   justify-self: center;
   padding: -1px;
-  top: 50px;
+  /* top: 50px; */
   position: absolute;
   flex-wrap: wrap;
   margin: 0px;
-  padding: 8%;
+  padding: 0 9%;
 }
 
 .item {

@@ -10,7 +10,6 @@ function Image(props) {
         poster={props.image.previewImageUrl}
         width={226}
         height={282}
-        // type="video/mp4"
       />
     </div>
   );
