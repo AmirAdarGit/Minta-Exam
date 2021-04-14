@@ -1,6 +1,8 @@
 .video-gallery {
   overflow: hidden;
   margin-left: 18%;
+  text-align: center;
+  padding-bottom: 18px;
 }
 
 .item,
@@ -13,6 +15,9 @@
   float: left;
 }
 
+.video-gallery .show-more-btn {
+  border: 1px solid black;
+}
 .container {
   display: flex;
   justify-self: center;
@@ -73,4 +78,9 @@ div.gallery img {
   color: #006eff;
   background: black;
   position: relative;
+}
+
+.poster > div div {
+  left: 35%;
+  top: 38%;
 }

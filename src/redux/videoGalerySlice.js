@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { showMoreVideos } from "../actions/showMoreVideos.thunk";
+import { clickOnShowMore } from "../actions/clickOnShowMore.thunk";
 import { clickOnUseCase } from "../actions/clickOnUsCase.thunk";
 
 import { init } from "../actions/init.thunk";
@@ -11,13 +11,14 @@ export const videoGallerySlice = createSlice({
     videos: [],
     status: null,
     count: 6,
+    shouldShowShowMoreButton: false,
   },
   extraReducers: {
-    [showMoreVideos.pending]: (state) => {
+    [clickOnShowMore.pending]: (state) => {
       state.status = LOADING;
     },
 
-    [showMoreVideos.fulfilled]: (state, { payload }) => {
+    [clickOnShowMore.fulfilled]: (state, { payload }) => {
       payload.videos.map((video) => {
         state.videos.push({
           previewImageUrl: video.videos[0].previewImages[0].links.url,
@@ -25,10 +26,11 @@ export const videoGallerySlice = createSlice({
         });
       });
       state.count = payload.count;
+      state.shouldShowShowMoreButton = payload.totalDocs > state.count;
       state.status = "success";
     },
 
-    [showMoreVideos.rejected]: (state) => {
+    [clickOnShowMore.rejected]: (state) => {
       state.status = "failed";
     },
 
@@ -43,6 +45,7 @@ export const videoGallerySlice = createSlice({
           videoUrl: video.videos[0].url,
         };
       });
+      state.shouldShowShowMoreButton = payload.totalDocs > state.count;
       state.count = payload.count;
       state.videos = videos;
       state.status = "success";
@@ -55,13 +58,15 @@ export const videoGallerySlice = createSlice({
       if (payload.videos.length == 0) {
         return;
       }
-      const previoseVideos = payload.videos.map((video) => {
+      const videos = payload.videos.map((video) => {
         return {
           previewImageUrl: video.videos[0].previewImages[0].links.url,
           videoUrl: video.videos[0].url,
         };
       });
-      state.videos = previoseVideos;
+
+      state.shouldShowShowMoreButton = payload.totalDocs > state.count;
+      state.videos = videos;
       state.status = "success";
     },
   },
