@@ -10,7 +10,7 @@ export const videoGallerySlice = createSlice({
   initialState: {
     videos: [],
     status: null,
-    count: 0,
+    count: 6,
   },
   extraReducers: {
     [showMoreVideos.pending]: (state) => {

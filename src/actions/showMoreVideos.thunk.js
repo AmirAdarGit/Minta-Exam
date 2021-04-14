@@ -10,7 +10,7 @@ export const showMoreVideos = createAsyncThunk(
   `${SHOW_MORE_VIDEOS}/showMoreVideos`,
   async (params) => {
     const { data } = await axios.get(
-      `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${params.videosCampaignId}&offset=${params.counter}&limit=6&applicationSource=web`
+      `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${params.videosCampaignId}&offset=${params.count}&limit=6&applicationSource=web`
     );
 
     console.log("6 more videos: ", data);
