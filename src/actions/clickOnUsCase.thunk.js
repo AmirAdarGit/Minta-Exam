@@ -20,6 +20,7 @@ export const clickOnUseCase = createAsyncThunk(
       videos: data.docs,
       selectedUseCaseName: useCase.name,
       campaignId: useCase.campaignId,
+      count: 6,
     };
   }
 );
