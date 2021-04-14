@@ -50,10 +50,10 @@ export const videoGallerySlice = createSlice({
     },
 
     [init.fulfilled]: (state, { payload }) => {
-      if (payload.videos === undefined) {
+      if (payload.videos.length == 0) {
         return;
       }
-      const previoseVideos = payload.videos.docs.map((video) => {
+      const previoseVideos = payload.videos.map((video) => {
         return {
           previewImageUrl: video.videos[0].previewImages[0].links.url,
           videoUrl: video.videos[0].url,

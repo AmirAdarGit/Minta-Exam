@@ -17,17 +17,8 @@ export const useCasesSlice = createSlice({
     selectedUseCaseName: "",
     selectedCampaignId: "",
   },
+
   extraReducers: {
-    [clickOnUseCase.pending]: (state) => {
-      state.status = LOADING;
-    },
-
-    [clickOnUseCase.fulfilled]: (state, { payload }) => {
-      state.selectedCampaignId = payload.campaignId;
-      state.selectedUseCaseName = payload.selectedUseCaseName;
-      state.status = "success";
-    },
-
     [init.pending]: (state) => {
       state.status = LOADING;
     },
@@ -35,8 +26,8 @@ export const useCasesSlice = createSlice({
       if (!payload.useCases) {
         return;
       }
-      if (payload.videos != undefined) {
-        state.selectedCampaignId = payload.videos.docs[0].campaign;
+      if (payload.videos.length != 0) {
+        state.selectedCampaignId = payload.videos[0].campaign;
       }
       const useCases = payload.useCases.map((useCase) => {
         return {
@@ -52,6 +43,16 @@ export const useCasesSlice = createSlice({
 
     [init.rejected]: (state) => {
       state.status = "failed";
+    },
+
+    [clickOnUseCase.pending]: (state) => {
+      state.status = LOADING;
+    },
+
+    [clickOnUseCase.fulfilled]: (state, { payload }) => {
+      state.selectedCampaignId = payload.campaignId;
+      state.selectedUseCaseName = payload.selectedUseCaseName;
+      state.status = "success";
     },
   },
 });
