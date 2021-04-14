@@ -1,8 +1,9 @@
 import React from "react";
+import "./loader.css";
 import { CircularProgress } from "@material-ui/core";
 function Loader() {
   return (
-    <div>
+    <div className="loader">
       <CircularProgress />
     </div>
   );
