@@ -28,6 +28,7 @@ export const useCasesSlice = createSlice({
       }
       if (payload.videos.length != 0) {
         state.selectedCampaignId = payload.videos[0].campaign;
+        state.selectedUseCaseName = payload.selectedUseCaseName;
       }
       const useCases = payload.useCases.map((useCase) => {
         return {
@@ -36,7 +37,6 @@ export const useCasesSlice = createSlice({
           campaignId: useCase.campaignId,
         };
       });
-
       state.useCases = useCases;
       state.status = "success";
     },
