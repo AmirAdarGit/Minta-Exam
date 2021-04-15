@@ -15,7 +15,6 @@ function VideoGallery() {
   const showMoreBtn = () => {
     dispatch(clickOnShowMore());
   };
-
   return (
     <div className="video-gallery">
       {title && <div className="title-video-gallery">#{title}</div>}
