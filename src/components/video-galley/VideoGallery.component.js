@@ -11,13 +11,7 @@ function VideoGallery() {
   const title = useSelector((state) => state.useCases.selectedUseCaseName);
   let videoGallery = useSelector((state) => state.videoGallery);
 
-  useEffect(() => {
-    console.log("ok");
-    console.log("The videos are: ", videoGallery);
-  }, [videoGallery]);
-
   const dispatch = useDispatch();
-
   const showMoreBtn = () => {
     dispatch(clickOnShowMore());
   };
