@@ -1,27 +1,36 @@
 import React from "react";
-import { useDispatch, useSelector, useEffect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { Button } from "@material-ui/core";
+import { clickOnShowMore } from "../../actions/clickOnShowMore.thunk";
+
 import Image from "../Image";
 import "./videoGallery.css";
-import ShowMoreBtn from "../ShowMoreBtn";
 
-function VideoGallery(props) {
-  const videos = useSelector((state) => state.videoGallery.videos);
+function VideoGallery() {
+  const title = useSelector((state) => state.useCases.selectedUseCaseName);
+  let videoGallery = useSelector((state) => state.videoGallery);
 
-  const title = useSelector((state) => state.useCases.selectedUseCase);
-
+  const dispatch = useDispatch();
+  const showMoreBtn = () => {
+    dispatch(clickOnShowMore());
+  };
   return (
     <div className="video-gallery">
       {title && <div className="title-video-gallery">#{title}</div>}
 
       <div className="container">
-        {videos.map((video, index) => (
+        {videoGallery.videos.map((video, index) => (
           <div key={index} className="item">
-            {console.log(video)}
             <Image image={video} />
           </div>
         ))}
-        {title && <ShowMoreBtn />}
       </div>
+      {videoGallery.shouldShowShowMoreButton && (
+        <Button className="show-more-btn" onClick={showMoreBtn}>
+          Show more
+        </Button>
+      )}
     </div>
   );
 }

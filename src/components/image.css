@@ -1,11 +1,11 @@
-.gallery {
+.image {
   margin: 5px;
   float: left;
   width: 223px;
   height: 282;
 }
 
-div.gallery img {
+div.image img {
   width: 100%;
   height: auto;
 }

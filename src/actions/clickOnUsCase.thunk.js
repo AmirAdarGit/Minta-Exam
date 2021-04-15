@@ -13,6 +13,7 @@ export const clickOnUseCase = createAsyncThunk(
     const { data } = await axios.get(
       `https://dev.withminta.com/generate-video/videos/findByCampaign?campaignId=${useCase.campaignId}&offset=0&limit=6&applicationSource=web`
     );
+    const totalDocs = data.totalDocs;
 
     window.history.replaceState({}, "", `/mints/${useCase.slug}`);
 
@@ -20,6 +21,8 @@ export const clickOnUseCase = createAsyncThunk(
       videos: data.docs,
       selectedUseCaseName: useCase.name,
       campaignId: useCase.campaignId,
+      count: 6,
+      totalDocs: totalDocs,
     };
   }
 );
