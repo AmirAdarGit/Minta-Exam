@@ -9,11 +9,11 @@ function clock_angles(hour, minute) {
 
   minuteDegree = 6 * minute;
 
-  theEngle = totalHours - minuteDegree;
-  if (theEngle > 180) {
-    theEngle = 360 - theEngle;
+  theAngles = totalHours - minuteDegree;
+  if (theAngles > 180) {
+    theAngles = 360 - theEngle;
   }
-  return theEngle;
+  return theAngles;
 }
 
-console.log("hand angle: (6, 15) = " + clock_angles(6, 15));
+console.log("The time is: (6, 15) = " + clock_angles(6, 15));
