@@ -1,9 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import { Button } from "@material-ui/core";
 import { clickOnShowMore } from "../../actions/clickOnShowMore.thunk";
-
 import Image from "../Image";
 import "./videoGallery.css";
 

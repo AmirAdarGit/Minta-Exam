@@ -8,7 +8,7 @@ function Mints() {
   return (
     <div className="full-height">
       <Provider store={store}>
-        <div className="full-height">
+        <div className="use-cases-and-video-gallery">
           <UseCases />
           <VideoGallery />
         </div>

@@ -19,6 +19,7 @@ export const init = createAsyncThunk(`${INIT}/init`, async () => {
   const selectedUseCaseByCampignId = useCases.find(
     (useCase) => useCase.slug === slug
   );
+
   if (!selectedUseCaseByCampignId) {
     return { useCases, videos: [], selectedUseCaseName: "", totalDocs: [] };
   }

@@ -54,8 +54,10 @@ export const useCasesSlice = createSlice({
       state.selectedUseCaseName = payload.selectedUseCaseName;
       state.status = "success";
     },
+    [clickOnUseCase.rejected]: (state) => {
+      state.status = "failed";
+    },
   },
 });
 
-export const { changeUseCase, changeCampaignId } = useCasesSlice.actions;
 export default useCasesSlice.reducer;

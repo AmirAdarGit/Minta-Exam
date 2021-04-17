@@ -26,6 +26,7 @@ function UseCases() {
   const isSelected = (campaignId) => {
     return cases.selectedCampaignId == campaignId;
   };
+
   return (
     <div className="use-cases">
       <ThemeProvider theme={theme}>

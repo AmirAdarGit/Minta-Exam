@@ -9,7 +9,6 @@ function Image(props) {
       <ReactVideo
         src={props.image.videoUrl}
         poster={props.image.previewImageUrl}
-        fluid={false}
         width={226}
         height={282}
       />
