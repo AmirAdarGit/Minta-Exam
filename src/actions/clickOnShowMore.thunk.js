@@ -7,7 +7,7 @@ const authToken = process.env.REACT_APP_MINTA_AUTH_TOKEN;
 axios.defaults.headers.common["Authorization"] = authToken;
 
 export const clickOnShowMore = createAsyncThunk(
-  `${CLICK_ON_SHOW_MORE}/showMoreVideos`,
+  `${CLICK_ON_SHOW_MORE}/clickOnShowMore`,
 
   async (_, getState) => {
     const state = getState.getState();
