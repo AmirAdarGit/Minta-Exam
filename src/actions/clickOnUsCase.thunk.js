@@ -13,6 +13,8 @@ export const clickOnUseCase = createAsyncThunk(
     );
     const totalDocs = data.totalDocs;
 
+    window.history.replaceState({}, "", `/mints/${useCase.slug}`);
+
     return {
       videos: data.docs,
       selectedUseCaseName: useCase.name,

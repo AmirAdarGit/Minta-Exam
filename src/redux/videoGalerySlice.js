@@ -50,6 +50,7 @@ export const videoGallerySlice = createSlice({
       state.videos = videos;
       state.status = "success";
     },
+
     [clickOnUseCase.rejected]: (state) => {
       state.status = "failed";
     },
