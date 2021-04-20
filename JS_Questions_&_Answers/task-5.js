@@ -1,19 +1,20 @@
-function clock_angles(hour, minute) {
-  hourDegree = 30 * hour;
-  hourDegreeWithMinuts = (minute / 60) * 30;
-  totalHours = hourDegree + hourDegreeWithMinuts;
+function clockAngles(hour, minute) {
+  let hourDegree = 30 * hour;
+  let hourDegreeWithMinuts = (minute / 60) * 30;
+  let totalHours = hourDegree + hourDegreeWithMinuts;
 
   if (minute == 60) {
     minute = 0;
   }
 
-  minuteDegree = 6 * minute;
+  let minuteDegree = 6 * minute;
 
-  theAngles = totalHours - minuteDegree;
-  if (theAngles > 180) {
-    theAngles = 360 - theEngle;
+  let theAngle = totalHours - minuteDegree;
+  if (theAngle > 180) {
+    theAngle = 360 - theAngle;
   }
-  return theAngles;
+  return theAngle;
 }
 
-console.log("The time is: (6, 15) = " + clock_angles(6, 15));
+console.log("the angle of the time: (6, 15) = " + clockAngles(6, 15));
+console.log("the angle of the time: (1, 5) = " + clockAngles(1, 5));
