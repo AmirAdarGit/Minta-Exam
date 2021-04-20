@@ -9,8 +9,6 @@ const nullValue = null;
 
 console.log(ensure(3)); //shuld return 3
 console.log(ensure(fls)); //shuld return false
-// console.log(ensure(undef));
-// console.log(ensure(nullValue));
 
 
 try {
