@@ -6,7 +6,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 
-//another solution using closures
+//another solution 
 
 for(var i = 0; i < 3; i++){
  function close (copyOfI) {
