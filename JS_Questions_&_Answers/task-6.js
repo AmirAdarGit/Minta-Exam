@@ -13,11 +13,11 @@ const lookAndSay = (str) => {
     }
     ans += `${str[i]}${counter}`;
   }
-  // adge point 1: the last number is single //
+  // edge point 1: the last number is single //
   if (str[strSize - 2] != str[strSize - 1]) {
     ans += str[strSize - 1] + "1";
   }
-  // adge point 2: the str is single char
+  // edge point 2: the str is single char
   if (strSize == 1) {
     ans = str[0] + "1";
   }
