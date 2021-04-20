@@ -6,11 +6,9 @@ for (let i = 0; i < 3; i++) {
 }
 
 
-//another solution 
-for(var i = 0; i < 3; i++){
- function close (copyOfI) {
-  setTimeout(function () {
-   alert(copyOfI);
-  }, copyOfI + 1000);}
-  close(i);
+//another solution using closures
+for (var i = 0; i < 3; i++) {
+  setTimeout(function(copyOfI) { 
+    return function() { alert(copyOfI); } 
+  }(i), 1000 + i);
 }
