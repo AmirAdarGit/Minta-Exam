@@ -8,8 +8,10 @@ for (let i = 0; i < 3; i++) {
 
 //another solution using closures
 
-for (var i = 0; i < 3; i++) {
-  setTimeout(function (theIth) {
-    return function () {alert(theIth)};
-  }(i), 1000 + i)
+for(var i = 0; i < 3; i++){
+ function close (copyOfI) {
+  setTimeout(function () {
+   alert(copyOfI);
+  }, copyOfI + 1000);}
+  close(i);
 }
