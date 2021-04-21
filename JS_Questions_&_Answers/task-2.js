@@ -1,15 +1,17 @@
-const humen1 = {
+const human1 = {
   name: "amir",
   age: "28",
   address: "Haifa",
 };
-const humen2 = {
+const human2 = {
   name: "tal",
   age: "33",
   address: "Tel Aviv",
 };
+const human3;
 
 function removeProperty(obj, prop) {
+  if (obj == null) return false;
   if (obj.hasOwnProperty(prop)) {
     delete obj[prop];
     return true;
@@ -17,8 +19,11 @@ function removeProperty(obj, prop) {
   return false;
 }
 
-console.log(removeProperty(humen1, "age"));
-console.log(humen1);
+console.log(removeProperty(human1, "age"));
+console.log(human1);
 
-console.log(removeProperty(humen2, "hobby"));
-console.log(humen2);
+console.log(removeProperty(human2, "hobby"));
+console.log(human2);
+
+console.log(removeProperty(human3, "hobby"));
+console.log(human3);
