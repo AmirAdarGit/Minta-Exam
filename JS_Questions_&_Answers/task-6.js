@@ -1,10 +1,9 @@
 const lookAndSay = (str) => {
-  let counter = 0;
   let ans = "";
   const strSize = str.length;
 
   for (let i = 0; i < strSize - 1; i++) {
-    counter = 1;
+    let counter = 1;
     while (str[i + 1] == str[i]) {
       counter++;
       i++;
