@@ -1,11 +1,11 @@
 function clockAngles(hour, minute) {
   let hourDegree = 30 * hour;
   let hourDegreeWithMinuts = (minute / 60) * 30;
-  let totalHours = hourDegree + hourDegreeWithMinuts;
+  const totalHours = hourDegree + hourDegreeWithMinuts;
 
   minute %= 60;
 
-  let minuteDegree = 6 * minute;
+  const minuteDegree = 6 * minute;
 
   let theAngle = totalHours - minuteDegree;
   if (theAngle > 180) {
