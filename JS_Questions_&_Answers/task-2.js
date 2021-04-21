@@ -8,7 +8,7 @@ const human2 = {
   age: "33",
   address: "Tel Aviv",
 };
-const human3;
+var human3;
 
 function removeProperty(obj, prop) {
   if (obj == null) return false;
