@@ -7,18 +7,17 @@ var undef;
 const fls = false;
 const nullValue = null;
 
-console.log(ensure(3)); //shuld return 3
-console.log(ensure(fls)); //shuld return false
-
+console.log(ensure(3)); //should return 3
+console.log(ensure(fls)); //should return false
 
 try {
-    ensure(undef); //shuld throw an exeption
+  ensure(undef); //should throw an exeption
 } catch (err) {
-    console.log(`Catch an exaption: ${err}`);
+  console.log(`Catch an exception: ${err}`);
 }
 
 try {
-    ensure(nullValue); //shuld throw an exeption
+  ensure(nullValue); //should throw an exeption
 } catch (err) {
-    console.log(`Catch an exaption: ${err}`);
+  console.log(`Catch an exception: ${err}`);
 }
