@@ -1,5 +1,5 @@
 const ensure = (value) => {
-  if (value === null || value === undefined) {
+  if (value == null) {
     throw new Error("value is undefined");
   } else return value;
 };
