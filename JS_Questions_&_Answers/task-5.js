@@ -3,9 +3,7 @@ function clockAngles(hour, minute) {
   let hourDegreeWithMinuts = (minute / 60) * 30;
   let totalHours = hourDegree + hourDegreeWithMinuts;
 
-  if (minute == 60) {
-    minute = 0;
-  }
+  minute %= 60;
 
   let minuteDegree = 6 * minute;
 
@@ -17,4 +15,4 @@ function clockAngles(hour, minute) {
 }
 
 console.log("the angle of the time: (6, 15) = " + clockAngles(6, 15));
-console.log("the angle of the time: (1, 5) = " + clockAngles(1, 5));
+console.log("the angle of the time: (3, 0) = " + clockAngles(3, 0));
